@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos Numéricos 2026</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>MÉTODOS NUMÉRICOS 2026</h1>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#integrantes">Integrantes</a>
+            <a href="#introduccion">Introducción</a>
+            <a href="#objetivo">Objetivos</a>
+            <a href="#metodo">Newton-Raphson</a>
+            <a href="#imagenes">Imágenes</a>
+            <a href="#video">Video</a>
+            <a href="#videos-integrantes">Videos Integrantes</a>
+            <a href="#minimos">Mínimos Cuadrados</a>
+            <a href="#pdfs">PDFs</a>
+            <a href="#faq">FAQ</a>
+            <a href="#conclusion">Conclusión</a>
+        </nav>
+    </header>
+
+    <div class="header-spacer"></div>
+
+    <main class="contenedor-principal">
+
+        <section id="inicio" class="seccion">
+            <h2>Bienvenida</h2>
+            <p>
+                Bienvenido a nuestro proyecto final de Métodos Numéricos.
+                En esta página web se presentan diferentes métodos numéricos,
+                ejemplos, gráficas y ejercicios realizados utilizando MATLAB,
+                HTML, CSS y JavaScript. Esta plataforma ha sido diseñada para ofrecer interactividad para cualquiera que quiera entender más sobre los temas de métodos numéricos.
+            </p>
+        </section>
+
+        <section id="integrantes" class="seccion">
+            <h2>Integrantes del Grupo</h2>
+            <p class="subtitulo-seccion">Estudiantes de la Facultad de Ingeniería en Sistemas</p>
+
+            <div class="galeria">
+                <div class="integrante-card">
+                    <div class="integrante-avatar">G</div>
+                    <h3>Gustavo</h3>
+                    <p>Carné:0907-24-12754</p>
+                </div>
+
+                <div class="integrante-card">
+                    <div class="integrante-avatar">EA</div>
+                    <h3>Edin Adolfo</h3>
+                    <p>Carné:0907-24-12776</p>
+                </div>
+
+                
+            </div>
+        </section>
+
+        <section id="introduccion" class="seccion">
+            <h2>Introducción</h2>
+            <p>
+                En esta plataforma web, encontrarán una recopilación estructurada e interactiva de los conocimientos prácticos desarrollados a lo largo del semestre en el curso de Métodos Numéricos. El sitio ha sido diseñado para funcionar como un entorno didáctico y visual donde se fusiona el análisis matemático con la programación.
+            </p>
+            <p>
+                A continuación, los usuarios podrán explorar un simulador dinámico del <strong>Método de Newton-Raphson</strong> para la aproximación de raíces y un módulo de <strong>Mínimos Cuadrados</strong> que desglosa detalladamente paso a paso el procedimiento algebraico y las tablas de sumatorias para el ajuste de curvas. Ambos cuentan con gráficas integradas en tiempo real. También se comparte una biblioteca digital con todas las presentaciones del curso en formato PDF, capturas de ejercicios en MATLAB, un video explicativo y una sección de respuestas a las preguntas más frecuentes del semestre.
+            </p>
+        </section>
+
+        <section id="objetivo" class="seccion">
+            <h2>Objetivos del Proyecto</h2>
+
+            <div class="objetivos-contenido">
+                <h3>Objetivo General</h3>
+                <p>
+                    Desarrollar una plataforma educativa e interactiva que consolide, aplique y exponga de manera sencilla los métodos numéricos estudiados durante el semestre, integrando simuladores web y herramientas de software especializado para facilitar la comprensión analítica.
+                </p>
+
+                <h3>Objetivos Específicos</h3>
+                <ul>
+                    <li>Implementar una interfaz web interactiva usando JavaScript y Chart.js para calcular y visualizar dinámicamente algoritmos de aproximación como Newton-Raphson y el ajuste de curvas por Mínimos Cuadrados.</li>
+                    <li>Automatizar el procesamiento matricial y el análisis de funciones matemáticas complejas haciendo uso de scripts optimizados en el entorno de MATLAB.</li>
+                    <li>Centralizar los recursos didácticos del curso, presentaciones, manuales de fórmulas y videos explicativos para proveer un espacio de consulta estructurado y de fácil acceso.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="metodo" class="seccion">
+        <h2>Método Newton-Raphson</h2>
+        <p>El Método de Newton-Raphson es un algoritmo numérico iterativo diseñado para aproximar las raíces de una función obteniendo los puntos donde f(x) = 0. Utiliza la geometría de la recta tangente basándose en el valor de la ecuación y su primera derivada para converger rápidamente hacia el resultado, esta es una de las herramientas de aproximación más eficientes y utilizadas en el ámbito de la ingeniería.</p>
+        <p>Seleccione la función, defina el punto de partida y el número de iteraciones deseadas para encontrar la raíz aproximada.</p>
+        
+        <select id="formula">
+            <option value="1">x³ - x - 2</option>
+            <option value="2">x² - 4</option>
+            <option value="3">cos(x) - x</option>
+        </select>
+        <br><br>
+        <input type="number" id="valorInicial" placeholder="Ingrese valor inicial (Aproximación inicial)">
+        <br><br>
+        <input type="number" id="numIteraciones" placeholder="Número de iteraciones (Ej: 5, 10, 15)" min="1" value="5">
+        <br><br>
+        <button onclick="calcularNewton()">Calcular</button>
+        <button onclick="descargarResultado()">Descargar Resultado</button>
+
+        <div id="formulasEvaluadas" style="margin-top: 15px; font-size: 1.1rem; color: #38bdf8;"></div>
+
+        <div id="resultado"></div>
+        <div class="contenedor-grafica">
+            <canvas id="graficaNewton"></canvas>
+        </div>
+    </section>
+
+        <section id="imagenes" class="seccion">
+            <h2>Galería de MATLAB</h2>
+
+            <div class="galeria">
+                <div class="card-descarga">
+                    <div class="contenedor-img">
+                        <img src="img/1.png" alt="Newton-Raphson Código">
+                    </div>
+                    <h3>Implementación en MATLAB</h3>
+                    <div class="acciones-card">
+                        <a href="img/1.png" target="_blank" class="boton-link">Ver</a>
+                        <a href="img/1.png" download="Newton_Matlab.png" class="boton-descarga">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="card-descarga">
+                    <div class="contenedor-img">
+                        <img src="img/2.png" alt="Newton-Raphson Gráfica">
+                    </div>
+                    <h3>Resultados y Gráficas</h3>
+                    <div class="acciones-card">
+                        <a href="img/2.png" target="_blank" class="boton-link">Ver</a>
+                        <a href="img/2.png" download="Grafica_Newton_Matlab.png" class="boton-descarga">Descargar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="video" class="seccion">
+            <h2>Video Explicativo newton-raphson</h2>
+
+            <div class="contenedor-video">
+                <video controls>
+                    <source src="video/Video1.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de videos.
+                </video>
+            </div>
+        </section>
+
+        <section id="videos-integrantes" class="seccion">
+            <h2>Videos de los Integrantes</h2>
+            <p class="descripcion-metodo">
+                En este apartado cada integrante del grupo presenta una explicación sobre la página web, su contenido y las funciones principales del proyecto.
+            </p>
+
+            <div class="galeria">
+                <div class="card-descarga">
+                    <h3>Video de Gustavo</h3>
+                    <video controls>
+                        <source src="video/gustavo.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de videos.
+                    </video>
+                </div>
+
+                <div class="card-descarga">
+                    <h3>Video de Edin Adolfo</h3>
+                    <video controls>
+                        <source src="video/edin.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de videos.
+                    </video>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="minimos" class="seccion">
+            <h2>Mínimos Cuadrados</h2>
+            <p class="descripcion-metodo">
+              <p>El Método de Mínimos Cuadrados es un procedimiento de análisis numérico utilizado para determinar la función continua que mejor se aproxime a un conjunto de datos ordenados. Consiste en minimizar la suma de los cuadrados de los residuos o diferencias entre los puntos reales y la línea de tendencia calculada. Es una herramienta muy utilizadas en estadística e ingeniería para modelar el comportamiento de variables experimentales.</p>  Ingrese los puntos coordenados de sus datos separados por comas para calcular la regresión lineal.
+            </p>
+
+            <div class="controles-simulador">
+                <input type="text" id="datosX" class="input-moderno" placeholder="Valores de X (Ej: 1,2,3,4)">
+                <input type="text" id="datosY" class="input-moderno" placeholder="Valores de Y (Ej: 2,4,5,8)">
+                <button onclick="calcularMinimos()" class="boton-primario boton-ancho">Calcular Regresión</button>
+            </div>
+
+            <div id="resultadoMinimos" class="resultado-caja"></div>
+
+            <div class="contenedor-grafica">
+                <canvas id="graficaMinimos"></canvas>
+            </div>
+        </section>
+
+        <section id="pdfs" class="seccion">
+            <h2>Biblioteca Digital (PDFs)</h2>
+
+            <div class="galeria-pdfs">
+
+                <div class="pdf-card">
+                    <h3>Ajuste de la curva, minimos cuadrados</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Ajuste de la curva, minimos cuadrados.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Ajuste de la curva, minimos cuadrados.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Ambiente MATLAB</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Ambiente MATLAB.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Ambiente MATLAB.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Entrada y salida controladas por el usuario</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Entrada y salida controladas por el usuario.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Entrada y salida controladas por el usuario.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>error y gauss seidel</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/error y gauss seidel.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/error y gauss seidel.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>GAUSS SEIDEL presentación</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/GAUSS SEIDEL presentación.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/GAUSS SEIDEL presentación.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Graficación</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Graficación.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Graficación.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Horner y Muller</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Horner y Muller.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Horner y Muller.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Interfaz gráfica MATLAB</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Interfaz gráfica MATLAB.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Interfaz gráfica MATLAB.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Interpolación y Ajuste de Curvas</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Interpolación y Ajuste de Curvas.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Interpolación y Ajuste de Curvas.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Manipulación de matrices</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Manipulación de matrices.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Manipulación de matrices.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Material_seccion</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Material_seccion.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Material_seccion.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Material GAUSS SEIDEL</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Material GAUSS SEIDEL.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Material GAUSS SEIDEL.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Material interpolación</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Material interpolación.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Material interpolación.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Material newton raphson</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Material newton raphson.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Material newton raphson.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Material Serie de Taylor</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Material Serie de Taylor.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Material Serie de Taylor.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>MATLAB para ingenieros</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/MATLAB para ingenieros.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/MATLAB para ingenieros.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Matrices</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Matrices.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Matrices.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Método de Müller - presentación</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Método de Müller - presentación.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Método de Müller - presentación.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Metodos numericos 5ta edicion</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Metodos numericos 5ta edicion.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Metodos numericos 5ta edicion.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Métodos numéricos</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Métodos numéricos.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Métodos numéricos.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Minimos cuadrados</h3>
+                    <div class="acciones-pdf">
+                        <a href="docs/Minimos cuadrados.pdf" target="_blank" class="btn-pdf-ver">Ver</a>
+                        <a href="docs/Minimos cuadrados.pdf" download class="btn-pdf-down">Descargar</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="faq" class="seccion">
+            <h2>Preguntas Frecuentes</h2>
+
+            <div class="faq-contenedor">
+
+                <div class="pregunta-bloque">
+                    <button class="boton-pregunta">1. ¿Qué fue lo más interesante que aprendiste durante la semana?</button>
+                    <div class="respuesta">
+                        Lo más interesante fue aprender cómo MATLAB y los métodos numéricos ayudan a resolver problemas de forma más rápida y precisa, especialmente al trabajar con iteraciones, gráficas y aproximaciones de raíces como en el método de Newton-Raphson.
+                    </div>
+                </div>
+
+                <div class="pregunta-bloque">
+                    <button class="boton-pregunta">2. ¿Qué aspecto del contenido te resultó más difícil de comprender?</button>
+                    <div class="respuesta">
+                        Lo más difícil fue entender algunos comandos y funciones de MATLAB, además de diferenciar ciertos tipos de errores y comprender cómo funcionan las iteraciones en algunos métodos numéricos.
+                    </div>
+                </div>
+
+                <div class="pregunta-bloque">
+                    <button class="boton-pregunta">3. ¿En qué momento del trabajo realizado durante la semana sentiste mayor dificultad?</button>
+                    <div class="respuesta">
+                        La mayor dificultad fue al realizar ejercicios manuales y trabajar con fórmulas en Excel o MATLAB, ya que un pequeño error en datos, referencias o decimales hacía que los resultados salieran incorrectos.
+                    </div>
+                </div>
+
+                <div class="pregunta-bloque">
+                    <button class="boton-pregunta">4. ¿Qué tema consideras que fue más útil para tu aprendizaje?</button>
+                    <div class="respuesta">
+                        El tema más útil fue el uso de gráficas y matrices en MATLAB, porque permitió visualizar mejor los resultados y comprender cómo representar datos en 2D y 3D de manera más clara.
+                    </div>
+                </div>
+
+                <div class="pregunta-bloque">
+                    <button class="boton-pregunta">5. ¿Qué aprendiste sobre el uso de herramientas tecnológicas en métodos numéricos?</button>
+                    <div class="respuesta">
+                        Aprendí que herramientas como MATLAB y Excel facilitan mucho los cálculos complejos y repetitivos, reducen errores y ayudan a analizar resultados de manera más rápida y eficiente.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="conclusion" class="seccion conclusion-grande">
+            <h2>Conclusión</h2>
+            <p>
+                En conclusión, durante este semestre aprendimos que los métodos numéricos permiten resolver problemas matemáticos complejos mediante algoritmos y computadoras. Utilizamos herramientas como MATLAB y Excel para tener los cálculos más precisos y trabajar con matrices y datos de forma más rápida y eficiente. También aplicamos métodos como Newton-Raphson y Mínimos Cuadrados para resolver ecuaciones y encontrar tendencias en datos experimentales. Las gráficas 2D y 3D nos ayudaron a interpretar mejor el comportamiento de las funciones y los errores. Además, el desarrollo de la plataforma web con HTML, CSS y JavaScript nos permitió integrar los métodos numéricos en un entorno interactivo y accesible. En conclusión, comprendimos y conocimos más sobre las herramientas fundamentales para resolver problemas reales de ingeniería y tecnología de manera rápida y eficaz.
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="pie-pagina">
+        <p>Proyecto Final de Métodos Numéricos 2026</p>
+        <p>Facultad de Ingeniería en Sistemas</p>
+        <p>© 2026 - Todos los derechos reservados</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
